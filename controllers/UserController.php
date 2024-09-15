@@ -117,7 +117,7 @@ class UserController extends \yii\rest\ActiveController
 
     //GET /me
     public function actionMe() {
-        return $this->currentUser() != null ? $this->currentUser(): "You are not authorized";
+        return $this->currentUser() != null ? $this->currentUser(): throw new UnauthorizedHttpException('Invalid username or password.');
     }
 
     //POST /login
